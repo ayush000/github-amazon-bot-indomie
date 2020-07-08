@@ -3,7 +3,7 @@ name: "Github amazon bot"
 
 on:
   schedule:
-    - cron: "*/20 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   bot:
