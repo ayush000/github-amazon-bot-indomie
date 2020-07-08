@@ -25,5 +25,5 @@
         chat-id (env :telegram-chat-id)
         body (get-site-body url)
         ipad-is-available (not (is-text-present? text-to-search body))]
-    (if (not ipad-is-available) (try (api/send-text token chat-id (str "Ipad is available! Please buy it from " url)) (catch Exception ex true)) true)))
+    (if ipad-is-available (try (api/send-text token chat-id (str "Ipad is available! Please buy it from " url)) (catch Exception ex true)) true)))
 
