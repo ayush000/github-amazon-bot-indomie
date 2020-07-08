@@ -19,7 +19,7 @@ jobs:
         with:
           lein: '2.9.3'
       - name: "Run code"
-        run: lein run
+        run: lein trampoline run
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
