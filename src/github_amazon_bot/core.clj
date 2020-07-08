@@ -1,6 +1,7 @@
 (ns github-amazon-bot.core
   (:require [clj-http.client :as client]
-            [environ.core :refer [env]]))
+            [environ.core :refer [env]]
+            [morse.api :as api]))
 
 (defn get-site-body
   "Get website body"
@@ -21,8 +22,8 @@
   (let [url "https://www.amazon.in/Apple-iPad-11-inch-Wi-Fi-128GB/dp/B0864JKY83"
         text-to-search "currently unavailable"
         token (env :telegram-token)
+        chat-id (env :telegram-chat-id)
         body (get-site-body url)
         ipad-is-available (not (is-text-present? text-to-search body))]
-    (println token)
-    (println ipad-is-available)))
+    (if ipad-is-available (try (api/send-text token chat-id (str "Ipad is available! Please buy it from " url)) (catch Exception ex true)) true)))
 
