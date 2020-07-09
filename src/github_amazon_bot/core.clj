@@ -19,7 +19,7 @@
 (defn -main
   "Main function"
   []
-  (let [url "https://www.amazon.in/Apple-iPad-11-inch-Wi-Fi-128GB/dp/B0864JKY83"
+  (let [url "https://www.amazon.in/dp/B0864JNFB8/"
         text-to-search "currently unavailable"
         token (env :telegram-token)
         chat-id (env :telegram-chat-id)
