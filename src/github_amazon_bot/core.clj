@@ -13,9 +13,8 @@
   "Check if text is present in passed string"
   [text-to-search contents]
   (let [pattern (re-pattern (str "(?im)" text-to-search))
-        first-occurence (re-find pattern contents)
-        num-chars (count first-occurence)]
-    (> num-chars 0)))
+        first-occurence (re-find pattern contents)]
+    (boolean first-occurence)))
 
 (defn get-items-to-watch
   "Get list of items to watch from a file"
