@@ -34,7 +34,5 @@
                              body (get-site-body url)
                              item-is-available (not (is-text-present? text-to-search body))]]
       (when item-is-available
-        (try
-          (api/send-text token chat-id (str name " is available! Please buy it from " url))
-          (catch Exception ex))))))
+        (api/send-text token chat-id (str name " is available! Please buy it from " url))))))
 
